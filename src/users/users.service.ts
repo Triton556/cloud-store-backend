@@ -18,9 +18,11 @@ export class UsersService {
   }
 
   async findById(id: number) {
-    return this.repository.findOneBy({
+    const { password, ...user } = await this.repository.findOneBy({
       id,
     });
+
+    return user;
   }
 
   create(dto: CreateUserDto) {
