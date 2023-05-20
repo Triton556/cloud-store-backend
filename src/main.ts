@@ -9,7 +9,10 @@ async function bootstrap() {
 
   app.enableCors({ credentials: true, origin: true });
 
-  app.use('/uploads', express.static(path.join(__dirname, '..', 'uploads')));
+  app.use(
+    '/uploads',
+    express.static(path.join(__dirname, '..', '..', 'uploads')),
+  );
 
   const config = new DocumentBuilder()
     .setTitle('Cloud store')
